@@ -13,7 +13,7 @@ public class QuickSort {
     public static void quickSort(int[] arr, int low, int high) {
         if (low < high) {
             //if true it means there is more than one element to sort
-            //proceeds to partition and recursively sort the subarrays
+            //proceeds to partition and recursively sort the subarrayss
             int pivotIndex = partition(arr, low, high);
             quickSort(arr, low, pivotIndex - 1);
             quickSort(arr, pivotIndex + 1, high);
