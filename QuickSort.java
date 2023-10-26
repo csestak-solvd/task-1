@@ -1,7 +1,7 @@
 public class QuickSort {
     public static void main(String[] args) {
         //intializing array of random numbers
-        int[] array = {12,4,5,6,7,3,1,15};
+        int[] array = {12,4,5,6,17,3,1,7};
         //quickSort is main sorting function for the array
         quickSort(array, 0, array.length - 1);
         System.out.println("Sorted");
@@ -10,32 +10,31 @@ public class QuickSort {
         }
     }
 //quickSort checks if the low index is less than the high index
-    public static void quickSort(int[] arr, int low, int high) {
-        if (low < high) {
-            //if true it means there is more than one element to sort
-            //proceeds to partition and recursively sort the subarrayss
-            int pivotIndex = partition(arr, low, high);
-            quickSort(arr, low, pivotIndex - 1);
-            quickSort(arr, pivotIndex + 1, high);
+    private static void quickSort(int[] array, int lowIndex, int highIndex) {
+        if (lowIndex >= highIndex) {
+            return;
         }
-    }
-//partition is a helper function
-    public static int partition(int[] arr, int low, int high) {
-        int pivot = arr[high];
-        int i = low - 1;
-        for (int j = low; j < high; j++) {
-            if (arr[j] < pivot) {
-                i++;
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+
+        int pivot = array[highIndex];
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex;
+        while (leftPointer<rightPointer) {
+            while(array[leftPointer]<= pivot && leftPointer < rightPointer) {
+                leftPointer++;
             }
+            while (array[rightPointer]>= pivot && leftPointer<rightPointer) {
+                rightPointer--;
+            }
+            swap(array, leftPointer, rightPointer);
+
         }
-
-        int temp = arr[i + 1];
-        arr[i + 1] = arr[high];
-        arr[high] = temp;
-
-        return i + 1;
+        swap(array, leftPointer, highIndex);
+        quickSort(array,lowIndex, leftPointer -1);
+        quickSort(array, leftPointer +1, highIndex);
+    }
+    private static void swap(int[] array, int index1, int index2) {
+        int temp = array[index1];
+        array[index1] = array[index2];
+        array[index2] = temp;
     }
 }
