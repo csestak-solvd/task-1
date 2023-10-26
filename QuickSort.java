@@ -1,15 +1,16 @@
+import java.util.Arrays;
 public class QuickSort {
     public static void main(String[] args) {
         //intializing array of random numbers
         int[] array = {12,4,5,6,17,3,1,7};
         //quickSort is main sorting function for the array
-        System.out.println("Before sorting:");
+        System.out.println("Before sorting:" + Arrays.toString(array));
         //for each loop/ printing each element as it loops through the array being assigned to value before sorting
         for (int value : array) {
-            System.out.println(value + " "); //printing sorted array
+            System.out.println(value + " "); //printing unsorted array
         }
-        quickSort(array, 0, array.length - 1); //calling quickSort function
-        System.out.println("\nSorted");
+        quickSort(array, 0, array.length - 1); //calling quickSort function to sort array
+        System.out.println("\nSorted" + Arrays.toString(array));
         //for each loop/ printing each element as it loops through the array being assigned to value after sorting
         for (int value : array) {
             System.out.println(value + " "); //printing sorted array
@@ -55,11 +56,10 @@ public class QuickSort {
         // Return the correct position of the pivot
         return leftPointer;
     }
-    //function to swap two elements in the array
+    //function to swap two elements in the array that are being "pointed at"+
     private static void swap(int[] array, int index1, int index2) {
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
     }
 }
-//test
