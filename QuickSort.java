@@ -28,7 +28,7 @@ public class QuickSort {
             swap(array, leftPointer, rightPointer);
 
         }
-        swap(array, leftPointer, highIndex);
+        swap(array, leftPointer, highIndexs);
         quickSort(array,lowIndex, leftPointer -1);
         quickSort(array, leftPointer +1, highIndex);
     }
