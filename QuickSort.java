@@ -54,7 +54,7 @@ public class QuickSort {
             swap(array, leftPointer, rightPointer);
 
         }
-        // Swap the pivot element with the element at the leftPointer
+        // Swap the pivot element (since we are choosing the high index as pivot each time) with the element at the leftPointer
         swap(array, leftPointer, highIndex);
 
         // Return the correct position of the pivot
